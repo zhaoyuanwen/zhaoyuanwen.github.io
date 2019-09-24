@@ -1,0 +1,1 @@
+let hello=(o,l)=>{console.log(o),console.log(l)},hi=(o,l)=>{console.log(o),console.log(l)};
