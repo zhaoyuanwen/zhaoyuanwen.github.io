@@ -3,7 +3,7 @@ let gulp = require("gulp");
 let app = {
     fonts : "./node_modules/bootstrap/fonts",
     js : "./node_modules/bootstrap/js",
-    less : "./node_modules/bootstrap/less",
+    less : "./node_modules/bootstrap/less/bootstrap.less",
     dist : "./node_modules/bootstrap/dist"
 }
 
@@ -37,15 +37,11 @@ let less = require("gulp-less");
 let cssmin = require("gulp-cssmin");
 
 gulp.task("less",function(done){
-    // gulp.src(app.less)
-    //     .pipe(rename("css"))
-    //     .pipe(gulp.dest(app.dist));
-    gulp.src(`${app.less}/*.less`)
+    gulp.src(app.less)
         .pipe(less())
-        .pipe(concat("bootstrap.css"))
         .pipe(cssmin())
         .pipe(rename("bootstrap.min.css"))
-        .pipe(gulp.dest(app.dist));
+        .pipe(gulp.dest(`${app.dist}/css`));
     done();
 });
 
